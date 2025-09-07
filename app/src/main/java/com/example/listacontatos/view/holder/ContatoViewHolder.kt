@@ -8,6 +8,6 @@ import com.example.listacontatos.R
 
 class ContatoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val imgPerfil = itemView.findViewById<ImageView>(R.id.img_perfil)
-    val txvNome = itemView.findViewById<TextView>(R.id.img_perfil)
-    val txvWhatsapp = itemView.findViewById<TextView>(R.id.img_perfil)
+    val txvNome = itemView.findViewById<TextView>(R.id.txv_nome)
+    val txvWhatsapp = itemView.findViewById<TextView>(R.id.txv_whatsapp)
 }
