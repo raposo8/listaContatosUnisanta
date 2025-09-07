@@ -1,5 +1,6 @@
 package com.example.listacontatos.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -53,8 +54,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
 
         txvVerContatos.setOnClickListener {
-            //val intent = Intent(this, )
-            //startActivity(intent)
+            val intent = Intent(this, ListaContatosActivity::class.java)
+            startActivity(intent)
         }
     }
 }
