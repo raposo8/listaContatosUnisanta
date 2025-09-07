@@ -1,6 +1,5 @@
 package com.example.listacontatos.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -8,11 +7,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.listacontatos.R
-import com.example.listacontatos.dao.UsuarioDAO
-import com.example.listacontatos.model.Usuario
+import com.example.listacontatos.dao.ContatosDAO
+import com.example.listacontatos.model.Contato
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    private val usuarioDAO = UsuarioDAO()
+    private val contatosDAO = ContatosDAO()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,17 +22,17 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         val btnCadastrar = findViewById<Button>(R.id.btn_cadastrar)
 
-        val txvVerUsuarios = findViewById<TextView>(R.id.txv_ver_usuarios)
+        val txvVerContatos = findViewById<TextView>(R.id.txv_ver_contatos)
 
         btnCadastrar.setOnClickListener {
             val nome = edtNome.text.toString()
             val whatsapp = edtWhatsapp.text.toString()
             val linkImagem = edtLinkImagem.text.toString()
 
-            val usuario = Usuario(nome, whatsapp, linkImagem)
+            val contato = Contato(nome, whatsapp, linkImagem)
 
             try {
-                usuarioDAO.add(usuario)
+                contatosDAO.add(contato)
 
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("Sucesso")
@@ -53,7 +52,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
         }
 
-        txvVerUsuarios.setOnClickListener {
+        txvVerContatos.setOnClickListener {
             //val intent = Intent(this, )
             //startActivity(intent)
         }
